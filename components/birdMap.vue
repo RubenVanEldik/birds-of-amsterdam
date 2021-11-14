@@ -44,6 +44,7 @@ export default {
       this.$store.state.birds.species.forEach(species => {
         const birds = this.$store.state.birds.data
 
+        // Add a source for only this bird species
         this.map.addSource(species.name, {
           'type': 'geojson',
           'data': {
@@ -52,6 +53,7 @@ export default {
           }
         })
 
+        // Add the layer
         this.map.addLayer({
           id: species.name,
           type: 'circle',
@@ -64,6 +66,7 @@ export default {
           }
         })
 
+        // Subscribe to store changes so the visibility can be updated when needed
         this.unsubscribes.push(this.$store.subscribe((mutation, state) => {
           const { name, show } = this.$store.state.birds.species.find(({ name }) => name === species.name)
 
