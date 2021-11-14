@@ -20,6 +20,8 @@ export default {
       zoom: 10,
       center: [4.893333, 52.373056]
     })
+
+    this.$store.dispatch('birds/get')
   }
 }
 </script>
