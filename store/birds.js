@@ -30,17 +30,17 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add(state, data) {
+  add (state, data) {
     state.data = data
   },
-  toggleSpecies(state, speciesName) {
+  toggleSpecies (state, speciesName) {
     const species = state.species.find(({ name }) => name === speciesName)
     species.show = !species.show
   }
 }
 
 export const getters = {
-  countOfSpecies: state => speciesName => {
+  countOfSpecies: state => (speciesName) => {
     // Return a dash when the data has not been loaded yet
     if (!state.data) {
       return '-'
@@ -63,7 +63,7 @@ export const getters = {
 }
 
 export const actions = {
-  async get(context) {
+  async get (context) {
     if (!context.state.birds) {
       // Fetch the birds
       const url = 'https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=VOGELS&THEMA=vogels'

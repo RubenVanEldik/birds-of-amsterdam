@@ -8,12 +8,12 @@
         class="flex items-center"
       >
         <input
-          :checked="species.show"
           :id="`checkbox-${species.name}`"
+          :checked="species.show"
           class="w-4 h-4 mr-2.5"
           type="checkbox"
           @change="$store.commit('birds/toggleSpecies', species.name)"
-        />
+        >
         <label
           :for="`checkbox-${species.name}`"
           v-text="species.name"

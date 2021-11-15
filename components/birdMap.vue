@@ -41,15 +41,15 @@ export default {
       await this.$store.dispatch('birds/get')
 
       // Add a layer for each species
-      this.$store.state.birds.species.forEach(species => {
+      this.$store.state.birds.species.forEach((species) => {
         const birds = this.$store.state.birds.data
 
         // Add a source for only this bird species
         this.map.addSource(species.name, {
-          'type': 'geojson',
-          'data': {
-              ...birds,
-              features: birds.features.filter(({ properties }) => properties.Vogel === species.name)
+          type: 'geojson',
+          data: {
+            ...birds,
+            features: birds.features.filter(({ properties }) => properties.Vogel === species.name)
           }
         })
 
