@@ -20,14 +20,14 @@
         />
         <div
           class="flex-grow text-right"
-          v-text="$store.getters[`birds/countOfSpecies`](species.name)"
+          v-text="$store.getters[`birds/speciesCount`](species.name)"
         />
       </div>
       <div class="flex items-center font-bold">
         <div>Currently visible</div>
         <div
           class="flex-grow text-right"
-          v-text="$store.getters[`birds/countOfSpecies`]()"
+          v-text="$store.getters[`birds/activeCount`]"
         />
       </div>
     </div>

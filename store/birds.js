@@ -40,25 +40,33 @@ export const mutations = {
 }
 
 export const getters = {
-  countOfSpecies: state => (speciesName) => {
-    // Return a dash when the data has not been loaded yet
-    if (!state.data) {
-      return '-'
-    } else if (speciesName) {
-      // Return the count of the species when a species name has been provided
+  speciesCount (state) {
+    return (speciesName) => {
+      // Return a dash when the data has not been loaded yet
+      if (!state.data) {
+        return '-'
+      }
+
+      // Return the count of the given species
       return state.data?.features
         .filter(({ properties }) => properties.Vogel === speciesName)
         .length
-    } else {
-      // Return the total count of all species currently shown when no species name is given
-      return state.species
-        .filter(({ show }) => !!show)
-        .reduce((total, { name }) => {
-          return total + state.data?.features
-            .filter(({ properties }) => properties.Vogel === name)
-            .length
-        }, 0)
     }
+  },
+  activeCount (state) {
+    // Return a dash when the data has not been loaded yet
+    if (!state.data) {
+      return '-'
+    }
+
+    // Return the total count of all species currently shown
+    return state.species
+      .filter(({ show }) => !!show)
+      .reduce((total, { name }) => {
+        return total + state.data?.features
+          .filter(({ properties }) => properties.Vogel === name)
+          .length
+      }, 0)
   }
 }
 
