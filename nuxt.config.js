@@ -2,6 +2,11 @@ export default {
   ssr: false,
   target: 'static',
   components: true,
+  loadingIndicator: {
+    name: 'pulse',
+    color: '#D1D5DB',
+    background: '#EFE9E1'
+  },
   head: {
     title: 'Birds of Amsterdam',
     htmlAttrs: {
