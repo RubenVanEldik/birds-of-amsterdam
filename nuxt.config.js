@@ -27,7 +27,7 @@ export default {
     mapboxToken: process.env.MAPBOX_TOKEN
   },
   buildModules: [
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss'
   ],
 }
